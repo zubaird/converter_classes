@@ -15,24 +15,24 @@ class TemperatureConverter
   end
 
   def to_celsius
-    case @unit
+    case unit
     when :celsius
-      @value
+      value
     when :kelvin
-      @value - 273.15
+      value - 273.15
     when :fahrenheit
-      (@value - 32.0) * (5.0/9.0)
+      (value - 32.0) * (5.0/9.0)
     end
   end
 
   def to_fahrenheit
-    case @unit
+    case unit
     when :fahrenheit
-      @value
+      value
     when :celsius
-      @value * (9.0/5.0) + 32.0
+      value * (9.0/5.0) + 32.0
     when :kelvin
-      1.788 * (@value - 273.0) + 32.0
+      1.788 * (value - 273.0) + 32.0
     end
   end
 
@@ -50,12 +50,12 @@ class TemperatureConverter
     #   @value
     # end
 
-    if @unit == :kelvin
-      @value
-    elsif @unit == :celsius
-      @value + 273.15
-    elsif @unit == :fahrenheit
-      (@value - 32)/1.8 + 273.15
+    if unit == :kelvin
+      value
+    elsif unit == :celsius
+      value + 273.15
+    elsif unit == :fahrenheit
+      (value - 32)/1.8 + 273.15
     end
 
   end
